@@ -4,6 +4,7 @@
 
 <a href="https://www.npmjs.org/package/xhfetch"><img src="https://img.shields.io/npm/v/xhfetch.svg?style=flat" alt="npm"></a>
 <a href="https://unpkg.com/xhfetch/polyfill"><img src="https://img.badgesize.io/https://unpkg.com/xhfetch/dist/xhfetch.cjs.production.min.js?compression=gzip" alt="gzip size"></a>
+<a href='https://coveralls.io/github/malcolm-kee/xhfetch?branch=master'><img src='https://coveralls.io/repos/github/malcolm-kee/xhfetch/badge.svg?branch=master' alt='Coverage Status' /></a>
 
 </div>
 
