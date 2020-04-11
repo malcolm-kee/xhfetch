@@ -1,5 +1,12 @@
 {
-  "version": "0.1.0",
+  "name": "xhfetch",
+  "author": "Malcolm Kee",
+  "version": "0.2.0",
+  "keywords": [
+    "fetch",
+    "xhr",
+    "cancellable"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -14,6 +21,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
+    "test:watch": "tsdx test --watch",
     "lint": "tsdx lint",
     "prepare": "tsdx build --name xhfetch --format cjs,esm,umd"
   },
@@ -29,14 +37,13 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "xhfetch",
-  "author": "Malcolm Kee",
   "module": "dist/xhfetch.esm.js",
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "husky": "^4.2.5",
     "tsdx": "^0.13.1",
     "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "xhr-mock": "^2.5.1"
   }
 }
