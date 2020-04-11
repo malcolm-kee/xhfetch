@@ -59,6 +59,10 @@ setTimeout(() => {
 }, 1000)
 ```
 
+## Examples
+
+- [React API calls in effect hooks and cancel](https://codesandbox.io/s/xhfetch-react-example-tf7pd)
+
 ## API
 
 The goal of Xhfetch is to provide a familiar interface while keeping small size, therefore we only focus on a subset of fetch API that is most commonly used.
