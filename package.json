@@ -1,7 +1,7 @@
 {
   "name": "xhfetch",
   "author": "Malcolm Kee <malcolm.keeweesiong@gmail.com>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "💫 Tiny cancellable fetch",
   "keywords": [
     "fetch",
