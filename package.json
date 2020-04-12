@@ -1,6 +1,6 @@
 {
   "name": "xhfetch",
-  "author": "Malcolm Kee",
+  "author": "Malcolm Kee <malcolm.keeweesiong@gmail.com>",
   "version": "1.0.0",
   "description": "💫 Tiny cancellable fetch",
   "keywords": [
@@ -15,8 +15,12 @@
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=10"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malcolm-kee/xhfetch"
+  },
+  "bugs": {
+    "url": "https://github.com/malcolm-kee/xhfetch/issues"
   },
   "scripts": {
     "start": "tsdx watch",
