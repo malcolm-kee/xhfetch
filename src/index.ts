@@ -38,18 +38,21 @@ export const createRequest = (url: string, options: RequestInit = {}) => {
     },
   });
 
-  xhr.open(options.method || 'get', url, true);
-
-  xhr.withCredentials = options.credentials === 'include';
-
-  for (const i in options.headers) {
-    xhr.setRequestHeader(i, (options.headers as Record<string, string>)[i]);
-  }
-
   return {
     xhr,
     fetch: () =>
       new Promise<SimpleResponse>((fulfill, reject) => {
+        xhr.open(options.method || 'get', url, true);
+
+        xhr.withCredentials = options.credentials === 'include';
+
+        for (const i in options.headers) {
+          xhr.setRequestHeader(
+            i,
+            (options.headers as Record<string, string>)[i]
+          );
+        }
+
         xhr.onload = () => {
           xhr.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm, ((
             _: string,

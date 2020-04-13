@@ -1,4 +1,4 @@
-import mock, { delay } from 'xhr-mock';
+import mock, { delay, sequence } from 'xhr-mock';
 import { createRequest } from '../src';
 
 describe(`.fetch`, () => {
@@ -150,6 +150,51 @@ describe(`.fetch`, () => {
         },
       }).fetch()
     ).rejects.toBeDefined();
+  });
+
+  it(`can be used multiple times`, async () => {
+    const response = 'The request success';
+    mock.get(
+      '/api',
+      sequence([
+        { status: 200, body: response },
+        { status: 500 },
+        { status: 200, body: response },
+      ])
+    );
+
+    const onSuccess = jest.fn();
+    const onError = jest.fn();
+
+    const { fetch } = createRequest('/api');
+
+    const makeCall = () =>
+      fetch()
+        .then(res => {
+          if (res.ok) {
+            return res.text();
+          }
+          throw new Error(res.statusText);
+        })
+        .then(onSuccess)
+        .catch(onError);
+
+    await makeCall();
+    await makeCall();
+    await makeCall();
+
+    expect(onSuccess).toHaveBeenCalledTimes(2);
+    expect(onSuccess.mock.calls).toMatchInlineSnapshot(`
+      Array [
+        Array [
+          "The request success",
+        ],
+        Array [
+          "The request success",
+        ],
+      ]
+    `);
+    expect(onError).toHaveBeenCalledTimes(1);
   });
 });
 
